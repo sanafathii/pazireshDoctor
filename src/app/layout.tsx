@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
+import HeaderComponent from "@/components/header/header.component";
+import FooterComponent from "@/components/footer/footer.component";
 import "./globals.css";
-
 const vazirmatn = Vazirmatn({
   subsets: ["latin", "arabic"],
   display: "swap",
@@ -19,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={vazirmatn.className}>{children}</body>
+      <body className={vazirmatn.className}>
+        <HeaderComponent />
+        <main>{children}</main>
+        <FooterComponent />
+      </body>
     </html>
   );
 }
